@@ -85,7 +85,7 @@ public class ConsistentHashKVStore {
         int i = 0;
         for (Map.Entry<Integer, Cache> entry : tailMap.entrySet()) {
             cacheNodes[i++] = entry.getKey();
-            if (i == replicationFactor) {
+            if (i == replicationFactor + 1) {
                 break;
             }
         }
@@ -119,7 +119,7 @@ public class ConsistentHashKVStore {
     }
 
     public static void main(String[] args) {
-        ConsistentHashKVStore kvStore = new ConsistentHashKVStore(1);
+        ConsistentHashKVStore kvStore = new ConsistentHashKVStore(2);
 
         for (int i = 0; i < 100; i++) {
             kvStore.put(i, "value" + i);
