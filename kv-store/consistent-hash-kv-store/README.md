@@ -153,8 +153,7 @@ When a cache node is added or removed, the keys need to be redistributed. This i
   - Current implementation is not thread-safe. Use synchronization or a thread-safe structure like ConcurrentSkipListMap for cacheRing.
   - Avoid contention by using locks at a finer granularity (e.g., per cache).
 
-- Handling Hot Caches
-  Hot caches (nodes with disproportionately high traffic) can be alleviated by:
+- Handling Hot Caches (nodes with disproportionately high traffic) can be alleviated by:
 
   - Using virtual nodes: Assign multiple positions to a single cache in the hash ring.
   - Load balancing strategies like random sampling.
